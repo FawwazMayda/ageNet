@@ -15,9 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var ageLabel: UILabel!
     
+    @IBOutlet weak var acneLabel: UILabel!
+    
+    @IBOutlet weak var wrinkleLabel: UILabel!
+    
+    
+    let netreq = NetReq()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        netreq.acneLabel = self.acneLabel
+        netreq.wrinkleLabel = self.wrinkleLabel
     }
 
     @IBAction func photoTapped(_ sender: Any) {
@@ -34,8 +42,13 @@ class ViewController: UIViewController {
         }
         
         let res = VNCoreMLRequest(model: model) { [weak self] res, error in
-            guard let res = res.results as? [VNClassificationObservation],let topRes = res.first else {
+            guard let resc = res.results as? [VNClassificationObservation],let conf = res.results as? [VNObservation],let topRes = resc.first else {
                 fatalError("No Results")
+            }
+            for i in 0..<resc.count {
+                let className = resc[i].identifier
+                let confScore = conf[i].confidence
+                print("\(className) with confidence: \(confScore)")
             }
             print(topRes.identifier)
             DispatchQueue.main.async {
@@ -69,6 +82,8 @@ extension ViewController: UIImagePickerControllerDelegate,UINavigationController
         }
         dismiss(animated: true)
         detectAge(image: cgImage)
+        //netreq.doRequests(withImage: image)
+        netreq.doRequestsAlamo(withImage: image)
     }
     
 }

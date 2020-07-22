@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		4D385A2724C6D86D00D12BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D385A2624C6D86D00D12BAF /* Assets.xcassets */; };
 		4D385A2A24C6D86D00D12BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D385A2824C6D86D00D12BAF /* LaunchScreen.storyboard */; };
 		4D385A3224C6DDD700D12BAF /* AgeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4D385A3124C6DDD700D12BAF /* AgeNet.mlmodel */; };
+		4DF8BFE624C8267F00A0BB7C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8BFE524C8267F00A0BB7C /* Network.swift */; };
+		4DF8BFE924C85B5C00A0BB7C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF8BFE824C85B5C00A0BB7C /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,7 @@
 		4D385A2924C6D86D00D12BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D385A2B24C6D86D00D12BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D385A3124C6DDD700D12BAF /* AgeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AgeNet.mlmodel; sourceTree = "<group>"; };
+		4DF8BFE524C8267F00A0BB7C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF8BFE924C85B5C00A0BB7C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +65,7 @@
 				4D385A1D24C6D86C00D12BAF /* AppDelegate.swift */,
 				4D385A1F24C6D86C00D12BAF /* SceneDelegate.swift */,
 				4D385A2124C6D86C00D12BAF /* ViewController.swift */,
+				4DF8BFE524C8267F00A0BB7C /* Network.swift */,
 				4D385A2324C6D86C00D12BAF /* Main.storyboard */,
 				4D385A2624C6D86D00D12BAF /* Assets.xcassets */,
 				4D385A3124C6DDD700D12BAF /* AgeNet.mlmodel */,
@@ -86,6 +91,9 @@
 			dependencies = (
 			);
 			name = ageNet;
+			packageProductDependencies = (
+				4DF8BFE824C85B5C00A0BB7C /* Alamofire */,
+			);
 			productName = ageNet;
 			productReference = 4D385A1A24C6D86C00D12BAF /* ageNet.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 4D385A1124C6D86C00D12BAF;
+			packageReferences = (
+				4DF8BFE724C85B5C00A0BB7C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 4D385A1B24C6D86C00D12BAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D385A2224C6D86C00D12BAF /* ViewController.swift in Sources */,
+				4DF8BFE624C8267F00A0BB7C /* Network.swift in Sources */,
 				4D385A1E24C6D86C00D12BAF /* AppDelegate.swift in Sources */,
 				4D385A3224C6DDD700D12BAF /* AgeNet.mlmodel in Sources */,
 				4D385A2024C6D86C00D12BAF /* SceneDelegate.swift in Sources */,
@@ -342,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4DF8BFE724C85B5C00A0BB7C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4DF8BFE824C85B5C00A0BB7C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DF8BFE724C85B5C00A0BB7C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D385A1224C6D86C00D12BAF /* Project object */;
 }
